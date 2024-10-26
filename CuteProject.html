@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jom Makan</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec;
+            position: relative;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #f06292;
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #ba68c8;
+            color: white;
+            border: none;
+            border-radius: 25px;
+        }
+
+        .rabbit {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            width: 120px;
+        }
+
+        .cat {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            width: 100px;
+            animation: tilt 2s infinite ease-in-out;
+        }
+
+        /* Cat tilt animation */
+        @keyframes tilt {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(-10deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Jom makan</h1>
+        <div class="buttons">
+            <!-- Using JavaScript to go to yes.html -->
+            <button id="yesBtn">Yes</button>
+
+            <!-- No button functionality remains unchanged -->
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <!-- Rabbit image -->
+    <img src="images/bear book.jpg" alt="Rabbit" class="rabbit">
+
+    <!-- Cat image -->
+    <img src="images/bear angry.jpg" alt="Cat" class="cat">
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        // Functionality for the "No" button running away
+        noBtn.addEventListener('mouseover', () => {
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        });
+
+        // Make the "Yes" button go to yes.html on click
+        yesBtn.addEventListener('click', () => {
+            window.location.href = 'yes.html';  // Redirect to yes.html
+        });
+    </script>
+
+</body>
+
+</html>
